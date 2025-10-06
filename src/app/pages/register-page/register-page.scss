@@ -1,0 +1,91 @@
+@use "./../../../../public/styles/forms-pages.scss";
+
+#container {
+    width: 520px;
+    margin: 40px auto;
+    padding: 32px 40px;
+    background: #3b3b3f;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    text-align: center;
+}
+
+h1 {
+    font-size: xx-large;
+    margin: 0 0 18px;
+}
+
+form { 
+    display: grid; 
+    gap: 5px; 
+    justify-items: center; 
+}
+
+.field { 
+    width: 100%; 
+    max-width: 360px; 
+    text-align: left; 
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #cfd2d8;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(143, 163, 255);
+}
+
+a:hover { text-decoration: underline; }
+
+input {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 10px;
+    background: #1f2125;
+    color: #eef0f4;
+    outline: none; // Quita el borde azul que aparece por defecto
+    transition: border .15s ease, box-shadow .15s ease, background .15s ease;
+
+    /* el & representa al selector padre de un bloque. Se usa para no repetir el nombre del selector. */
+    &::placeholder { color: rgba(238,240,244,.45); }
+
+    &:hover { border-color: rgba(255,255,255,.28); }
+
+    /*Cuando el input está activo (focus), cambia el color del borde, agrega un brillo azul y oscurece el fondo. */
+    &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
+
+    /* Si Angular marca el input como inválido y ya fue tocado, se pone en rojo para mostrar un error. */
+    &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }
+}
+
+button {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 16px;
+    width: 160px;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .08s ease, background-color .15s ease;
+
+    &:hover { background-color: #eef0ff; }
+    /* Al hacer clic, baja 1px simulando que el botón se presiona físicamente. */
+    &:active { transform: translateY(1px); }
+}
+
+.error { 
+    margin-top: 6px;
+    margin-bottom: 6px; 
+    color: #ff6b6b; 
+    font-size: .9rem; 
+}
+
+.muted {
+    margin-top: 6px;
+}

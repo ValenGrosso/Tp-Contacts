@@ -1,0 +1,22 @@
+<li [class.favourite]="contact().isFavorite === true">
+    <span class="cell name">{{contact().firstName}} {{contact().lastName}}</span>
+    <span class="cell phone">{{contact().number}}</span>
+    <span class="cell email">{{contact().email}}</span>
+    <span class="cell groups">{{contact().groups}}</span>
+    <span class="cell actions">
+    <button>Editar</button>
+    <button>Borrar</button>
+  </span>
+</li>
+<li>
+    <span>-</span>
+    <span>
+        <button (click)="contactsService.deleteContact(contact().id)">Borrar</button>
+        <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
+    </span>
+    <span>
+        @if (contact().isFavorite === true) {
+            ⭐
+        }
+    </span>
+</li>

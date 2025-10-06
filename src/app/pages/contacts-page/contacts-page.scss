@@ -1,0 +1,140 @@
+@use "./../../../../public/styles/forms-pages.scss";
+
+/* ====== Layout común de la página ====== */
+.page-width {               
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ====== Encabezado de la lista (Nombre | Teléfono | Email | Grupos | Acciones) ====== */
+div:first-of-type {
+  max-width: 900px;
+  margin: 16px auto 8px;
+  padding: 10px 14px;
+  background: #3b3b3f;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  color: #cfd2d8;
+  font-weight: 600;
+
+  /* Grid simple para alinear columnas */
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 2fr 1fr 1fr; /* Nombre, Teléfono, Email, Grupos, Acciones */
+  gap: 12px;
+}
+
+/* ====== Lista de contactos ====== */
+ul {
+  list-style: none;
+  margin: 0 auto 24px;
+  padding: 0;
+  max-width: 900px;
+  display: grid;
+  gap: 8px; /* separación entre filas */
+}
+
+/* ul > * = aplica estilo a cada hijo directo de la lista (li o tu componente) */
+/* Comentario: “ul > *” significa “todo hijo directo dentro de ul”, sirve cuando no sabés si es <li> o un custom element. */
+ul > * {
+  background: #3b3b3f;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 2fr 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  color: #eef0f4;
+}
+
+
+#container {
+    width: 520px;
+    margin: 40px auto;
+    padding: 32px 40px;
+    background: #3b3b3f;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    text-align: center;
+}
+
+h2 {
+    font-size: xx-large;
+    margin: 0 0 18px;
+}
+
+form {
+    display: grid;
+    gap: 5px;           
+    justify-items: center;
+    width: 360px;
+}
+
+/* Cada campo (label + input + error) en columna para que el error quede ABAJO del input */
+form > div {
+    width: 100%;
+    max-width: 420px;
+    text-align: left;
+    display: flex;        
+    flex-direction: column;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #cfd2d8;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 10px;
+    background: #1f2125;
+    color: #eef0f4;
+    outline: none; /* quita borde azul por defecto */
+    transition: border .15s ease, box-shadow .15s ease, background .15s ease;
+
+    &::placeholder { color: rgba(238,240,244,.45); }  /* placeholder más tenue */
+    &:hover { border-color: rgba(255,255,255,.28); }
+    &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
+    &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    color: #8b97ff;   
+    transform: translateY(2px);
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #dfe3ff;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .08s ease, background-color .15s ease;
+
+    &:hover { background-color: #eef0ff; }    
+    &:active { transform: translateY(1px); }  
+    &:disabled { opacity: .6; cursor: not-allowed; }
+}
+
+
+.error {
+    display: block;         
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: #ff6b6b;
+    font-size: .9rem;
+}
