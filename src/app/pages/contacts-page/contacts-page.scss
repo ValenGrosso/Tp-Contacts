@@ -1,13 +1,7 @@
 @use "./../../../../public/styles/forms-pages.scss";
 
-/* ====== Layout común de la página ====== */
-.page-width {               
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 /* ====== Encabezado de la lista (Nombre | Teléfono | Email | Grupos | Acciones) ====== */
-div:first-of-type {
+.tittle {
   max-width: 900px;
   margin: 16px auto 8px;
   padding: 10px 14px;
@@ -17,37 +11,12 @@ div:first-of-type {
   color: #cfd2d8;
   font-weight: 600;
 
-  /* Grid simple para alinear columnas */
-  display: grid;
-  grid-template-columns: 2fr 1.2fr 2fr 1fr 1fr; /* Nombre, Teléfono, Email, Grupos, Acciones */
-  gap: 12px;
-}
-
-/* ====== Lista de contactos ====== */
-ul {
-  list-style: none;
-  margin: 0 auto 24px;
-  padding: 0;
-  max-width: 900px;
-  display: grid;
-  gap: 8px; /* separación entre filas */
-}
-
-/* ul > * = aplica estilo a cada hijo directo de la lista (li o tu componente) */
-/* Comentario: “ul > *” significa “todo hijo directo dentro de ul”, sirve cuando no sabés si es <li> o un custom element. */
-ul > * {
-  background: #3b3b3f;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
-  padding: 10px 12px;
-
-  display: grid;
-  grid-template-columns: 2fr 1.3fr 2fr 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  color: #eef0f4;
+  justify-content: center;
+  gap: 90px;
 }
-
 
 #container {
     width: 520px;
@@ -98,7 +67,7 @@ input[type="url"] {
     border-radius: 10px;
     background: #1f2125;
     color: #eef0f4;
-    outline: none; /* quita borde azul por defecto */
+    outline: none; 
     transition: border .15s ease, box-shadow .15s ease, background .15s ease;
 
     &::placeholder { color: rgba(238,240,244,.45); }  /* placeholder más tenue */
@@ -130,7 +99,6 @@ button {
     &:disabled { opacity: .6; cursor: not-allowed; }
 }
 
-
 .error {
     display: block;         
     margin-top: 6px;
@@ -138,3 +106,4 @@ button {
     color: #ff6b6b;
     font-size: .9rem;
 }
+

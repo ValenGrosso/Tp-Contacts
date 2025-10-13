@@ -2,14 +2,18 @@ import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angula
 import { Form, FormGroup, FormsModule, NgControl, NgForm, NgModel } from '@angular/forms';
 import { Contact, NewContact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { SpinnerComponent } from "../../components/spinner/spinner";
 
 
 @Component({
   selector: 'app-new-edit-contact',
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    SpinnerComponent,
+],
   templateUrl: './new-edit-contact.html',
-  styleUrl: './new-edit-contact.scss'
+  styleUrls: ['./new-edit-contact.scss']
 })
 export class NewEditContact {
   contactsService = inject(ContactsService);
@@ -18,6 +22,7 @@ export class NewEditContact {
   idContacto = input<number>();
   contactoOriginal: Contact | undefined = undefined;
   form = viewChild<NgForm>('newContactForm');
+  isLoading = false;
 
   async ngOnInit() {
     if (this.idContacto()) {
@@ -38,7 +43,6 @@ export class NewEditContact {
 
   /** Revisa si estamos editando o creando un contacto y ejecuta la función correspondiente */
   async handleFormSubmission(form:NgForm){
-    this.errorEnBack = false;
     const nuevoContacto: NewContact ={
       firstName: form.value.firstName,
       lastName: form.value.lastName,
@@ -51,17 +55,17 @@ export class NewEditContact {
   }
 
   let res;
-    // const res = await this.contactsService.createContact(nuevoContacto);
+  // const res = await this.contactsService.createContact(nuevoContacto);
+  this.isLoading = true;
   if(this.idContacto()){
     res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!.toString()})
+    res = nuevoContacto
+    this.router.navigate(["/contacts",res]);
   } else {
     res = await this.contactsService.createContact(nuevoContacto);
   }
+  this.isLoading = false;
 
-    if(!res) {
-      this.errorEnBack = true;
-      return
-    };
-    this.router.navigate(["/contacts",res.id]);
+    
   }
 }

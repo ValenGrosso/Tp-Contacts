@@ -2,6 +2,8 @@ import { Component, inject, input } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-contact-list-item',
   imports: [RouterModule],
@@ -12,4 +14,20 @@ export class ContactListItem {
   contact = input.required<Contact>()
   aleatorio = Math.random()
   contactsService = inject(ContactsService)
+
+   // Abre modal de pregunta de borrar contacto
+    openDeleteModal() {
+      Swal.fire({
+        title: "¿Desea borrar el contacto?",
+        showDenyButton: true,
+        showCancelButton: true,
+        showConfirmButton: false,
+        confirmButtonText: "Cancelar",
+        denyButtonText: `Borrar contacto`
+      })  .then((result) => {
+            if (result.isDenied) { //Reviso que haya clickeado el botón rojo
+              this.contactsService.deleteContact(this.contact().id);
+            }
+          });
+    }
 }

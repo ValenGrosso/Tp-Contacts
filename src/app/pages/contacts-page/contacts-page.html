@@ -1,23 +1,25 @@
 <!-- <a routerLink="login">Ir a login</a> -->
- <div>
+ <div class="tittle">
   <span>Nombre</span>
   <span>Telefono</span>
   <span>Email</span>
   <span>Grupos</span>
   <span>Acciones</span>
  </div>
- <ul>
-  @for (contactoIndividual of contactsService.contacts; track $index) {
-    <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
-  }
- </ul>
+ <div class="lista-contacts">
+  <ul>
+    @for (contactoIndividual of contactsService.contacts; track $index) {
+      <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
+    }
+  </ul>
+ </div>
 
  <!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
 <div id="container" class="card">
  <h2>Nuevo contacto</h2>
  <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
   <div>
-    <label for="first-name">Nombre</label>
+    <label class="name" for="first-name">Nombre</label>
     <input id="first-name" name="firstName" type="text" ngModel required="true" minlength="2" maxlength="20" #firstName="ngModel">
     @if (firstName.dirty && firstName.invalid) {
       <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>

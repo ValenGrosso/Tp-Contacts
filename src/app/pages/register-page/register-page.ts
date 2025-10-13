@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UsersService } from '../../services/users-service';
-import { Spinner } from '../../components/spinner/spinner';
+import { SpinnerComponent } from '../../components/spinner/spinner';
 
 @Component({
   selector: 'app-register-page',
-  imports: [RouterModule,FormsModule,Spinner],
+  imports: [RouterModule,FormsModule,SpinnerComponent],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss'
 })

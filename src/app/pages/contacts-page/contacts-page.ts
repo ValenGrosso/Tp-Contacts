@@ -30,9 +30,8 @@ export class ContactsPage implements OnInit {
       number: form.number,
       company: form.company,
       isFavorite: form.isFavorite
-
     }
-
+    console.log(nuevoContacto) 
     this.contactsService.createContact(nuevoContacto)
   }
 }

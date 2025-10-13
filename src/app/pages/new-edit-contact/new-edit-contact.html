@@ -41,10 +41,14 @@
     <label for="image">URL Imagen</label>
     <input id="image" name="image" type="text" ngModel minlength="10">
   </div>
-  @if (errorEnBack) {
-      <p class="error">Error indeterminado, intente nuevamente.</p>
-    } 
-  <button [disabled]="newContactForm.invalid">+</button>
+  @if (idContacto()) {
+    <button [disabled]="newContactForm.invalid"> Editar </button>
+  } @else {
+    <button [disabled]="newContactForm.invalid"> Crear </button>
+  }
+  @if (isLoading) {
+    <app-spinner></app-spinner>
+  }
 
  </form>
  </div>
