@@ -4,7 +4,7 @@
     width: 520px;
     margin: 120px auto;
     padding: 32px 40px;
-    background: #3b3b3f;
+    background-color: #3b3b3f;
     border-radius: 14px;
     box-shadow: 0 12px 30px rgba(0,0,0,.35);
     text-align: center;
@@ -49,18 +49,15 @@ input {
     border-radius: 10px;
     background: #1f2125;
     color: #eef0f4;
-    outline: none; // Quita el borde azul que aparece por defecto
+    outline: none; 
     transition: border .15s ease, box-shadow .15s ease, background .15s ease;
 
-    /* el & representa al selector padre de un bloque. Se usa para no repetir el nombre del selector. */
     &::placeholder { color: rgba(238,240,244,.45); }
 
     &:hover { border-color: rgba(255,255,255,.28); }
 
-    /* Cuando el input está activo (focus), cambia el color del borde, agrega un brillo azul y oscurece el fondo. */
     &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
 
-    /* Si Angular marca el input como inválido y ya fue tocado, se pone en rojo para mostrar un error. */
     &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }
 }
 
@@ -75,7 +72,6 @@ button {
     transition: transform .08s ease, background-color .15s ease;
 
     &:hover { background-color: #eef0ff; }
-    /* Al hacer clic, baja 1px simulando que el botón se presiona físicamente. */
     &:active { transform: translateY(1px); }
 }
 

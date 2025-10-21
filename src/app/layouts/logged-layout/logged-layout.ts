@@ -3,7 +3,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth-service';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-logged-layout',
   imports: [RouterOutlet, RouterLink],
@@ -24,7 +23,6 @@ export class LoggedLayout {
       confirmButtonText: "Cancelar",
       denyButtonText: `Cerrar sesión`
     })  .then((result) => {
-          /* Read more about isConfirmed, isDenied below */
           if (result.isDenied) { //Reviso que haya clickeado el botón rojo
             this.authService.logout;
           }

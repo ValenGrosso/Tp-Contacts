@@ -58,7 +58,7 @@ export class NewEditContact {
   // const res = await this.contactsService.createContact(nuevoContacto);
   this.isLoading = true;
   if(this.idContacto()){
-    res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!.toString()})
+    res = await this.contactsService.editContact({...nuevoContacto,id: Number(this.idContacto())})
     res = nuevoContacto
     this.router.navigate(["/contacts",res]);
   } else {

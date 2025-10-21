@@ -70,7 +70,7 @@ input[type="url"] {
     outline: none; 
     transition: border .15s ease, box-shadow .15s ease, background .15s ease;
 
-    &::placeholder { color: rgba(238,240,244,.45); }  /* placeholder más tenue */
+    &::placeholder { color: rgba(238,240,244,.45); } 
     &:hover { border-color: rgba(255,255,255,.28); }
     &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
     &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }

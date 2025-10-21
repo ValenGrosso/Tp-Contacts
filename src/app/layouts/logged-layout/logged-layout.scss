@@ -1,3 +1,33 @@
-div{
-    background-color: gray;
+.header {
+    background-color: var(--color-background);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#button-log-out {
+    border: none;
+    background-color: var(--color-button);
+    text-decoration: none;
+    margin-right: 20px;
+    color: var(--color-text-button);
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+
+    &:hover { color: var(--color-button-hover); }
+}
+
+#contacts {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    margin-right: 20px;
+    color: var(--color-link);
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+
+    &:hover { color: var(--color-link-hover); text-decoration: underline;}
 }

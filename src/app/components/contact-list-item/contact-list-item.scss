@@ -1,13 +1,87 @@
-.favourite{
-    font-weight: bold;
-}
+$color-text: rgb(203, 203, 203);
+$color-button: #dfe3ff;
+$color-button-hover: #eef0ff;
+$color-link: #3027a2;
+$color-card: rgb(74, 74, 74);;
 
 .list-item {
     display: flex;
-    flex-direction: row;
-    gap: 25px;
-    width: 900px;
+    gap: 8px;
+    padding: 10px;
     align-items: center;
     justify-content: center;
-    margin-left: 300px;
+    margin-bottom: 6px;
 }
+
+.name {
+    flex: 0 0 28%;
+    color: $color-text;
+}
+
+.phone {
+    flex: 0 0 18%;
+    color: $color-text;
+}
+
+.email {
+    flex: 0 0 28%;
+    color: $color-text;
+}
+
+.script {
+    flex: 0 0 14%;
+    color: $color-text;
+}
+
+.actions {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+        height: 32px;
+        padding: 0 10px;
+        border: none;
+        font-weight: 600;
+        background-color: $color-button;
+        color: #373737;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover { background-color: $color-button-hover; }
+    }
+
+    #edit {
+        color: $color-link;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover { text-decoration: underline; }
+    }
+}
+
+.star {
+    color: #faca39;
+    font-size: 16px;
+}
+
+#button-delete {
+    width: 56px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid $color-link;
+    text-decoration: none;
+    background-color: $color-button;
+    color: #282828;
+    margin-left: -35px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover { background-color: $color-button-hover; }
+}
+
+
+
+

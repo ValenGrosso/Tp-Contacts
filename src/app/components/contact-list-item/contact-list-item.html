@@ -2,17 +2,15 @@
     <span class="cell name">{{contact().firstName}} {{contact().lastName}}</span>
     <span class="cell phone">{{contact().number}}</span>
     <span class="cell email">{{contact().email}}</span>
-    <span class="cell groups">{{contact().groups}}</span>
-    <span>-</span>
+    <span class="cell script">-</span>
     <span class="cell actions">
-        <button (click)="openDeleteModal()">Borrar</button>
-        <a [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
+        <button id="button-delete" (click)="openDeleteModal()">Borrar</button>
+        <a id="edit" [routerLink]="['/contacts',contact().id,'edit']">Editar</a>
     </span>
-</li>
-<li>
-    <span>
+    <span class="cell star">
         @if (contact().isFavorite === true) {
             ⭐
         }
     </span>
 </li>
+    
