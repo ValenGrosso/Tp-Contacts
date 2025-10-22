@@ -93,9 +93,9 @@ export class ContactsService {
     return true;
   }
 
-  /** Marca / desmarca un contacto como favorito */
+  /** Marca/desmarca un contacto como favorito */
   async setFavourite(id:string | number) { 
-    const res = await fetch(this.URL_BASE+"/"+id+"favorite", 
+    const res = await fetch(this.URL_BASE+"/"+id+"/favorite", 
       {
         method: "POST",
         headers: {
@@ -106,7 +106,7 @@ export class ContactsService {
     /** Edita la lista actual de contactos reemplazando sólamente el favorito */
     this.contacts = this.contacts.map(contact => {
       if(contact.id === id) {
-        return {...contact,isFavorite: !contact.isFavorite};
+        return {...contact, isFavorite: !contact.isFavorite};
       };
       return contact;
     });
