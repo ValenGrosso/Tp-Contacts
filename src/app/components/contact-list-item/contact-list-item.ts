@@ -15,7 +15,6 @@ export class ContactListItem {
   aleatorio = Math.random()
   contactsService = inject(ContactsService)
 
-   // Abre modal de pregunta de borrar contacto
     openDeleteModal() {
       Swal.fire({
         title: "¿Desea borrar el contacto?",
@@ -25,9 +24,11 @@ export class ContactListItem {
         confirmButtonText: "Cancelar",
         denyButtonText: `Borrar contacto`
       })  .then((result) => {
-            if (result.isDenied) { //Reviso que haya clickeado el botón rojo
+            if (result.isDenied) { 
               this.contactsService.deleteContact(this.contact().id);
             }
           });
     }
 }
+
+

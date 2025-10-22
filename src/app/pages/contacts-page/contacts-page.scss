@@ -1,109 +1,104 @@
-@use "./../../../../public/styles/forms-pages.scss";
-
-/* ====== Encabezado de la lista (Nombre | Teléfono | Email | Grupos | Acciones) ====== */
-.tittle {
-  max-width: 900px;
-  margin: 16px auto 8px;
-  padding: 10px 14px;
-  background: #3b3b3f;
-  border: 1px solid rgba(255,255,255,.12);
+.list-contacts {
+  --cols-contactos: 28% 18% 28% 14% 1fr;
+  width: 100%;
+  max-width: 960px;
+  background-color: var(--color-primary-background);
+  border: 1px solid var(--color-secondary);
   border-radius: 10px;
-  color: #cfd2d8;
-  font-weight: 600;
-
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  padding: 20px;
+  margin: 20px auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-text);
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.table-tittles {
+  display: grid;
+  grid-template-columns: var(--cols-contactos);
   align-items: center;
+  justify-items: start;
+  gap: 8px;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  color: var(--color-text);
+  opacity: .9;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  height: 48px;
+}
+
+.table-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: var(--cols-contactos);
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, .02);
+  border-radius: 8px;
+  padding: 12px 20px;
+  min-height: 48px;
+}
+
+.contact-item .acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-button);
+  color: var(--color-text-button);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .18s ease;
+  margin: 10px auto 0 auto; 
+}
+
+.add:hover {
+  background-color: var(--color-button-hover);
+}
+
+:host {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
-  gap: 90px;
+  background-color: var(--color-background);
+  padding: 40px 16px;
+  color: var(--color-text);
 }
 
-#container {
-    width: 520px;
-    margin: 40px auto;
-    padding: 32px 40px;
-    background: #3b3b3f;
-    border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
-    text-align: center;
+.table-tittles span:nth-child(1),
+.row > span:nth-child(1) { flex: 0 0 28%; }
+
+.table-tittles span:nth-child(2),
+.row > span:nth-child(2) { flex: 0 0 18%; }
+
+.table-tittles span:nth-child(3),
+.row > span:nth-child(3) { flex: 0 0 28%; }
+
+.table-tittles span:nth-child(4),
+.row > span:nth-child(4) { flex: 0 0 14%; }
+.table-tittlesspan:nth-child(5),
+.row > span:nth-child(5) {
+  flex: 1;
+  display: flex;
+  gap: 10px;
 }
-
-h2 {
-    font-size: xx-large;
-    margin: 0 0 18px;
-}
-
-form {
-    display: grid;
-    gap: 5px;           
-    justify-items: center;
-    width: 360px;
-}
-
-/* Cada campo (label + input + error) en columna para que el error quede ABAJO del input */
-form > div {
-    width: 100%;
-    max-width: 420px;
-    text-align: left;
-    display: flex;        
-    flex-direction: column;
-}
-
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    color: #cfd2d8;
-    font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"] {
-    width: 100%;
-    height: 42px;
-    padding: 0 12px;
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 10px;
-    background: #1f2125;
-    color: #eef0f4;
-    outline: none; 
-    transition: border .15s ease, box-shadow .15s ease, background .15s ease;
-
-    &::placeholder { color: rgba(238,240,244,.45); } 
-    &:hover { border-color: rgba(255,255,255,.28); }
-    &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
-    &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }
-}
-
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    color: #8b97ff;   
-    transform: translateY(2px);
-}
-
-button {
-    border: none;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: #dfe3ff;
-    color: #111;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform .08s ease, background-color .15s ease;
-
-    &:hover { background-color: #eef0ff; }    
-    &:active { transform: translateY(1px); }  
-    &:disabled { opacity: .6; cursor: not-allowed; }
-}
-
-.error {
-    display: block;         
-    margin-top: 6px;
-    margin-bottom: 6px;
-    color: #ff6b6b;
-    font-size: .9rem;
-}
-

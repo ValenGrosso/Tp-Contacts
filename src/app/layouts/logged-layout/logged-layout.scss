@@ -1,33 +1,36 @@
-.header {
-    background-color: var(--color-background);
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+.nav {
+  margin: 0 auto;        
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  background-color: var(--color-secondary);
 }
 
-#button-log-out {
-    border: none;
-    background-color: var(--color-button);
-    text-decoration: none;
-    margin-right: 20px;
-    color: var(--color-text-button);
-    font-size: 18px;
-    margin-top: 10px;
-    cursor: pointer;
-
-    &:hover { color: var(--color-button-hover); }
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: text-decoration .2s ease;
+}
+.nav-link:hover {
+  text-decoration: underline;
 }
 
-#contacts {
-    border: none;
-    background-color: transparent;
-    text-decoration: none;
-    margin-right: 20px;
-    color: var(--color-link);
-    font-size: 18px;
-    margin-top: 10px;
-    cursor: pointer;
-
-    &:hover { color: var(--color-link-hover); text-decoration: underline;}
+.btn-logout {
+  border: none;
+  background: var(--color-button);
+  color: var(--color-text-button);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .18s ease;
 }
+.btn-logout:hover {
+  background: var(--color-button-hover);
+}
+

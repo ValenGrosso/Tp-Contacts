@@ -1,87 +1,40 @@
-$color-text: rgb(203, 203, 203);
-$color-button: #dfe3ff;
-$color-button-hover: #eef0ff;
-$color-link: #3027a2;
-$color-card: rgb(74, 74, 74);;
-
 .list-item {
-    display: flex;
-    gap: 8px;
-    padding: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 6px;
+  display: grid;
+  align-items: center;
+  color: var(--color-text);
 }
 
-.name {
-    flex: 0 0 28%;
-    color: $color-text;
+.cell { 
+    color: var(--color-text); 
+    padding-right: 110px;
 }
 
-.phone {
-    flex: 0 0 18%;
-    color: $color-text;
-}
+.name   { grid-column: 1; }
+.phone  { grid-column: 2; }
+.email  { grid-column: 3; }
+.script { grid-column: 4; }
+.actions{ grid-column: 5; display: flex; gap: 10px; align-items: center; }
 
-.email {
-    flex: 0 0 28%;
-    color: $color-text;
-}
-
-.script {
-    flex: 0 0 14%;
-    color: $color-text;
-}
-
-.actions {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    button {
-        height: 32px;
-        padding: 0 10px;
-        border: none;
-        font-weight: 600;
-        background-color: $color-button;
-        color: #373737;
-        border-radius: 6px;
-        cursor: pointer;
-
-        &:hover { background-color: $color-button-hover; }
-    }
-
-    #edit {
-        color: $color-link;
-        font-weight: 600;
-        text-decoration: none;
-
-        &:hover { text-decoration: underline; }
-    }
-}
-
-.star {
-    color: #faca39;
-    font-size: 16px;
-}
+.star { grid-column: 1; justify-self: end; font-size: 16px; }
 
 #button-delete {
-    width: 56px;
-    height: 36px;
-    font-size: 14px;
-    font-weight: 700;
-    border: 1px solid $color-link;
-    text-decoration: none;
-    background-color: $color-button;
-    color: #282828;
-    margin-left: -35px;
-    border-radius: 6px;
-    cursor: pointer;
-
-    &:hover { background-color: $color-button-hover; }
+  height: 32px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-button);
+  color: var(--color-text-button);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s ease;
 }
+#button-delete:hover { background: var(--color-button-hover); }
 
+#edit {
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+#edit:hover { text-decoration: underline; color: var(--color-link-hover); }
 
-
-
+.favourite { background: rgba(255, 210, 74, .08); }

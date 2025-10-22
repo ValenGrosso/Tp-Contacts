@@ -1,6 +1,5 @@
 export interface Contact {
   id: number,
-  /** Nombre del contacto */
   firstName: string,
   lastName: string,
   address: string
@@ -11,5 +10,4 @@ export interface Contact {
   isFavorite: boolean
 }
 
-/** Interfaz que es igual a Contact pero sin ID */
 export type NewContact = Omit<Contact,"id">;

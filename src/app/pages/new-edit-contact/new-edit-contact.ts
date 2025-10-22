@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angula
 import { Form, FormGroup, FormsModule, NgControl, NgForm, NgModel } from '@angular/forms';
 import { Contact, NewContact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterLink } from '@angular/router';
 import { SpinnerComponent } from "../../components/spinner/spinner";
 
 
@@ -11,6 +11,7 @@ import { SpinnerComponent } from "../../components/spinner/spinner";
   imports: [
     FormsModule,
     SpinnerComponent,
+    RouterLink,
 ],
   templateUrl: './new-edit-contact.html',
   styleUrls: ['./new-edit-contact.scss']
@@ -23,11 +24,11 @@ export class NewEditContact {
   contactoOriginal: Contact | undefined = undefined;
   form = viewChild<NgForm>('newContactForm');
   isLoading = false;
+contact: any;
 
   async ngOnInit() {
     if (this.idContacto()) {
         this.contactoOriginal = await this.contactsService.getContactByID(this.idContacto()!)
-        // Cambio los valores del formulario
         this.form()?.setValue({
             firstName: this.contactoOriginal?.firstName,
             lastName: this.contactoOriginal?.lastName,
@@ -41,7 +42,6 @@ export class NewEditContact {
     }
   }
 
-  /** Revisa si estamos editando o creando un contacto y ejecuta la función correspondiente */
   async handleFormSubmission(form:NgForm){
     const nuevoContacto: NewContact ={
       firstName: form.value.firstName,
@@ -55,7 +55,6 @@ export class NewEditContact {
   }
 
   let res;
-  // const res = await this.contactsService.createContact(nuevoContacto);
   this.isLoading = true;
   if(this.idContacto()){
     res = await this.contactsService.editContact({...nuevoContacto,id: Number(this.idContacto())})
@@ -64,8 +63,6 @@ export class NewEditContact {
   } else {
     res = await this.contactsService.createContact(nuevoContacto);
   }
-  this.isLoading = false;
-
-    
+  this.isLoading = false;   
   }
 }

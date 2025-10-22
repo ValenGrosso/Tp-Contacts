@@ -1,83 +1,98 @@
-@use "./../../../../public/styles/forms-pages.scss";
+:host {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--color-text);
+}
 
 #container {
-    width: 520px;
-    margin: 120px auto;
-    padding: 32px 40px;
-    background-color: #3b3b3f;
-    border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
-    text-align: center;
+  background-color: var(--color-primary-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 12px;                
+  padding: 28px 30px;                 
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;                         
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .35); 
 }
 
 h1 {
-    font-size: xx-large;
-    margin: 0 0 18px;
+  margin: 0;
+  font-size: 26px;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-align: left;
 }
 
-form { 
-    display: grid; 
-    gap: 14px; 
-    justify-items: center; 
-}
-
-.field { 
-    width: 100%; 
-    max-width: 360px; 
-    text-align: left; 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                         
 }
 
 label {
-    display: block;
-    margin-bottom: 6px;
-    color: #cfd2d8;
-    font-weight: 500;
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: .9;                       
 }
 
-a {
-    text-decoration: none;
-    color: rgb(143, 163, 255);
+input[type="email"],
+input[type="password"] {
+  width: 95%;
+  height: 42px;                       
+  border-radius: 6px;                 
+  border: 1px solid var(--color-secondary);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 15px;
+  padding: 0 12px;     
+  margin-top: 5px;           
 }
 
-a:hover { text-decoration: underline; }
-
-input {
-    width: 100%;
-    height: 38px;
-    padding: 0 12px;
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 10px;
-    background: #1f2125;
-    color: #eef0f4;
-    outline: none; 
-    transition: border .15s ease, box-shadow .15s ease, background .15s ease;
-
-    &::placeholder { color: rgba(238,240,244,.45); }
-
-    &:hover { border-color: rgba(255,255,255,.28); }
-
-    &:focus { border-color: #8b97ff; box-shadow: 0 0 0 3px rgba(139,151,255,.25); background: #191b1f; }
-
-    &.ng-invalid.ng-touched { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.25); }
+input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0;
 }
 
 button {
-    border: none;
-    border-radius: 999px;
-    padding: 10px 16px;
-    width: 160px;
-    color: #111;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform .08s ease, background-color .15s ease;
-
-    &:hover { background-color: #eef0ff; }
-    &:active { transform: translateY(1px); }
+  height: 42px;                   
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-button);
+  color: var(--color-text-button);
+  font-size: 15px;
+  font-weight: 700;                   
+  letter-spacing: .2px;              
+  cursor: pointer;
+  transition: background-color .18s ease;
+  width: 100%;                      
 }
 
-.error { 
-    margin-top: 6px; 
-    color: #ff6b6b; 
-    font-size: .9rem; 
+button:hover {
+  background-color: var(--color-button-hover);
 }
 
+.error {
+  color: var(--color-error);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+p {
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: .85;                      
+}
+
+a[routerLink] {
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover { text-decoration: underline; color: var(--color-link-hover); }
+}

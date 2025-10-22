@@ -15,15 +15,6 @@
       <p>Teléfono: {{ contact.number }}</p>
     </div>
 
-    <div class="favorite">
-      @if (contact.isFavorite) {
-          <span>⭐</span>
-          <button type="button" (click)="toggleFavorite()">Quitar de favoritos</button>
-      } @else {
-        <button type="button" (click)="toggleFavorite()">Agregar a favoritos</button>
-      }
-    </div>
-
     <div class="actions">
       <a [routerLink]="['/contacts',idContacto(),'edit']">Editar</a>
       <button type="button" (click)="deleteContact()">Eliminar</button>

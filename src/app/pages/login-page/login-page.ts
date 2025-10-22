@@ -17,7 +17,6 @@ export class LoginPage {
   isLoading = false;
 
   async login(form:any){
-    console.log(form.value)
     this.errorLogin = false;
     if(!form.value.email || !form.value.password){
       this.errorLogin = true;

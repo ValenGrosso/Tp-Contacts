@@ -1,59 +1,18 @@
-<!-- <a routerLink="login">Ir a login</a> -->
- <div class="tittle">
-  <span>Nombre</span>
-  <span>Telefono</span>
-  <span>Email</span>
-  <span>Grupos</span>
-  <span>Acciones</span>
- </div>
- <div class="lista-contacts">
-  <ul>
-    @for (contactoIndividual of contactsService.contacts; track $index) {
-      <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
-    }
-  </ul>
- </div>
+<div class="list-contacts">
+  <div class="table-tittles">
+    <span>Nombre</span>
+    <span>Telefono</span>
+    <span>Email</span>
+    <span>Grupos</span>
+    <span>Acciones</span>
+  </div>
 
- <!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
-<div id="container" class="card">
- <h2>Nuevo contacto</h2>
- <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
-  <div>
-    <label class="name" for="first-name">Nombre</label>
-    <input id="first-name" name="firstName" type="text" ngModel required="true" minlength="2" maxlength="20" #firstName="ngModel">
-    @if (firstName.dirty && firstName.invalid) {
-      <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>
-    }
-  </div>
-  <div>
-    <label for="last-name">Apellido</label>
-    <input id="last-name" name="lastName" type="text" ngModel maxlength="20">
-  </div>
-  <div>
-    <label for="phone">Telefono</label>
-    <input id="phone" name="number" type="text" ngModel required="true" minlength="3" maxlength="30">
-  </div>
-  <div>
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" ngModel maxlength="40">
-  </div>
-  <div>
-    <label for="favourite">Favorito</label>
-    <input id="favourite" name="isFavourite" type="checkbox" ngModel>
-  </div>
-  <div>
-    <label for="address">Direccion</label>
-    <input id="address" name="address" type="text" ngModel minlength="5">
-  </div>
-  <div>
-    <label for="company">Companía</label>
-    <input id="company" name="company" type="text" ngModel minlength="2">
-  </div>
-  <div>
-    <label for="image">URL Imagen</label>
-    <input id="image" name="image" type="text" ngModel minlength="10">
-  </div>
-  <button [disabled]="newContactForm.invalid">+</button>
+    <ul class="table-rows">
+      @for (contactoIndividual of contactsService.contacts; track $index) {
+        <app-contact-list-item class="contact-item" [contact]="contactoIndividual"></app-contact-list-item>
+      }
+    </ul>
 
- </form>
+    <button class="add" routerLink="/contacts/new">+</button>
 </div>
+

@@ -1,0 +1,111 @@
+:host {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Poppins', Arial, sans-serif;
+  padding: 40px 16px;
+}
+
+.loading,
+.not-found {
+  width: 100%;
+  max-width: 560px;
+  background: var(--color-primary-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  padding: 20px;
+  text-align: center;
+}
+
+.loading p,
+.not-found p {
+  margin: 0;
+  font-size: 16px;
+  opacity: .85;
+}
+
+.contact-details {
+  width: 100%;
+  max-width: 560px;
+  background: var(--color-primary-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-details h2 {
+  margin: 0 0 4px 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-text);
+  opacity: .95;
+}
+
+.favorite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favorite span { font-size: 18px; } /* ⭐ */
+
+.contact-details button {
+  height: 36px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-button);
+  color: var(--color-text-button);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s ease;
+}
+
+.contact-details button:hover { background: var(--color-button-hover); }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.actions a {
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.actions a:hover { text-decoration: underline; color: var(--color-link-hover); }
+
+.actions button:last-child {
+  background: #e05252;
+  color: #fff;
+}
+
+.actions button:last-child:hover {
+  background: #cc4747; 
+}

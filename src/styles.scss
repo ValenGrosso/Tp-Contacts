@@ -52,23 +52,21 @@ table {
 /* You can add global styles to this file, and also import other style files */
 :root {
   // Colores
-  --color-primary: rgb(143, 163, 255);
-  --color-primary-background: rgb(74, 74, 74);;
-  --color-secondary: rgb(76, 87, 134);
+  --color-primary: rgb(203, 203, 203);
+  --color-primary-background: rgb(54, 54, 54);;
+  --color-secondary: rgb(59, 59, 59);
   --color-background: rgb(39, 39, 39);
   --color-text: rgb(203, 203, 203);
   --color-text-button: #373737;
   --color-error: red;
-  --color-button: rgb(154, 154, 154);
-  --color-button-hover: rgb(181, 181, 181);
-  --color-link: #3027a2;
-  --color-link-hover: #3930bc;
-  
+  --color-button: rgb(203, 203, 203);
+  --color-button-hover: rgb(130, 130, 130);
+  --color-link: #5b4fff;
+  --color-link-hover: #3829ff;
 }
 
 
 body {
-  color: rgb(203, 203, 203);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

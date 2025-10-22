@@ -18,8 +18,7 @@ export class RegisterPage {
 
   async register(form:any){
     console.log(form.value);
-    this.errorRegister = false; //Elimino el mensaje de error
-    // Hago validación extra sobre el formulario
+    this.errorRegister = false; 
     if(!form.value.email || 
       !form.value.password || 
       !form.value.password2 || 

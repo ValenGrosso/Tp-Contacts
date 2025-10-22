@@ -25,7 +25,7 @@ export const routes: Routes = [
     canActivateChild: [onlyLoggedUserGuard],
     children: [
       {
-        path: "contacts",
+        path: "",
         component: ContactsPage
       },
       {
